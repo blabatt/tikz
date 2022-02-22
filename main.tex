@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{tikz}
+\usepackage[american]{circuitikz}
 \usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
 \usepackage[nosf]{kpfonts}
 \usepackage[t1]{sourcesanspro}
@@ -84,27 +85,45 @@ linecolor=gray,linewidth=1pt,%
 \begin{mdframed}[]
 \footnotesize
 \sffamily
+<<<<<<< HEAD
 \Large{\textbf{Tikz, PGFPlots, CircuiTikz}} \\ 
+=======
+\Large{\textbf{Tikz}} \\ 
+>>>>>>> e9ef7c3 (Update on Overleaf.)
 \footnotesize Cheatsheet, ~page~\thepage~of~2
 \end{mdframed}
 }
 
+\newenvironment{code}
+    {
+    \fboxsep0pt
+    \colorbox{pastelgrey}}
+    {
+    }
 
-%\newenvironment{code}
-%    {\VerbatimEnvironment
-%    \fboxsep0pt
-%    \colorbox{pastelgrey}
-%    }
-%    {}
-    
-\newenvironment{code}[1]
-    {\ifthenelse{\isempty{#1}}{\begin{minipage}{4cm}}{\begin{minipage}{{#1}cm}}}
-    {\end{minipage}}
 
-\newenvironment{coode}
-    {\begin{tabular}{l l}}
-    {\end{tabular}}
-  
+\newcommand{\mycol}[1]{%%%
+    \begin{minipage}{12mm}%%
+        #1%%%
+    \end{minipage}%%%
+}%%%
+
+\newcommand{\mycolX}[2]{%%%
+    \begin{minipage}{{#1}}%%
+        #2%%%
+    \end{minipage}%%%
+}%%%
+
+
+\newcommand{\entry}[3]{%%%
+    \begin{minipage}{{#1}}%%
+        \code{#2}%%%
+    \end{minipage}%%%
+    \% #3
+}%%%
+
+
+
  \newenvironment{vcode}
  {\VerbatimEnvironment
   \begin{tcolorbox}[
@@ -115,18 +134,18 @@ linecolor=gray,linewidth=1pt,%
  {\end{Verbatim}\end{tcolorbox}}
  
 \lstset{%
-  basicstyle=\scriptsize\ttfamily,
+  basicstyle=\footnotesize\ttfamily,
   breaklines=false,
   aboveskip=0pt,
   belowskip=2pt,
-  backgroundcolor = \color{pastelgrey},
+  backgroundcolor = \color{pastelgreen},
   language=[LaTeX]{TeX},
   escapeinside={(*@}{@*)},
 }
 
 \makeatletter
 \renewcommand{\section}{\@startsection{section}{1}{0mm}%
-                                {.2ex}%
+                                {1.2ex}%
                                 {.2ex}%x
                                 {\color{myblue}\sffamily\large\bfseries}}
 \renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}%
@@ -255,18 +274,14 @@ linecolor=gray,linewidth=1pt,%
 \small
 \begin{multicols*}{4}
 
-%\input{document.tex}
-%\input{text.tex}
-%\input{math.tex}
-%\input{tables.tex}
-%\input{lists.tex}
-%\input{boxes.tex}
-%\input{graphics.tex}
+
 \input{tikz.tex}
-\input{pgfplots.tex}
-\input{circuitikz.tex}
-%\input{control.tex}
-%\input{packages.tex}
+\input{coord}
+\input{path}
+\input{arrow}
+\input{node}
+\input{graphs}
+\input{libraries}
 
 \end{multicols*}
 \end{document}

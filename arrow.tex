@@ -1,0 +1,83 @@
+\section{Arrows \& Arrow-Heads}
+
+\begin{lstlisting}
+\path[<begin_hd_spec>?-<end_hd_spec>?]
+\end{lstlisting}
+\entry{42mm}{\textbackslash path[-\{Latex[\dots]\}]}{long form} \\
+\entry{42mm}{\textbackslash path[<->]}{shorthand} \\
+
+\textit{For consistency, redefine }\texttt{>}\textit{ head as desired shape within document as a whole or limited to one }\texttt{\textbackslash begin\{scope\}}\textit{:}\\
+\code{\textbackslash tikz [<-> /.tip = Stealth]} \\
+
+\texttt{begin\_head\_spec}\textit{ and }\texttt{end\_head\_spec}\textit{ can include multiple heads or caps, can be separated or not, and can connected by lines or not, eg:}\\
+\entry{45mm}{\textbackslash draw [-\{>[sep=1pt]>\}]}{separated}\\
+\entry{45mm}{\textbackslash draw [->\_>]}{ibid}\\
+\entry{45mm}{\textbackslash draw [-\{>{}>[sep=2pt]\}]}{space after}\\
+\entry{45mm}{\textbackslash draw [<.<{}<->.>{}>]}{halt lines}\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Arrow Sizing, Positioning Options}
+{\scriptsize \begin{multicols}{3}\begin{itemize}[leftmargin=2mm,label={}]
+    \item width
+    \item width\textquotesingle
+    \item inset 
+    \item inset\textquotesingle
+    \item angle
+    \item angle\textquotesingle
+    \item length
+    \item scale
+    \item scale length
+    \item scale width
+    \item arc
+    \item slant 
+    \item reversed
+    \item swap
+    \item sep
+    \item color
+    \item fill
+    \item open
+    \item shorten
+    \item shorten by
+\end{itemize}
+\end{multicols}}
+\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Heads \& Caps}
+\textit{With following options, most of the following can be }\texttt{reversed}\textit{, }\texttt{open}\textit{ed, or }\texttt{slant}\textit{ed.}
+{\scriptsize \begin{multicols}{3}\begin{itemize}[leftmargin=2mm,label={}]
+    \item arc barb
+    \item bar
+    \item bracket
+    \item hooks
+    \item parenthesis
+    \item straight barb
+    \item tee barb
+    \item implies
+    \item to
+    \item circle
+    \item diamond
+    \item ellipse 
+    \item kite
+    \item latex
+    \item rectangle
+    \item square
+    \item stealth
+    \item triangle
+    \item turned square
+\end{itemize}
+\end{multicols}} \
+
+\textit{Line \say{cap}s are an alternative to arrow \say{head}s:}
+{\scriptsize \begin{multicols}{2}\begin{itemize}[leftmargin=2mm,label={}]
+    \item butt cap
+    \item round cap
+    \item triangle cap
+    \item fast round
+    \item fast triangle
+\end{itemize}
+\end{multicols}}
+

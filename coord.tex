@@ -1,0 +1,54 @@
+\section{Coordinates}
+
+\begin{lstlisting}
+([<option>*] <coordspec>)
+\end{lstlisting}
+
+\textit{Position and name a new coordinate:}\\
+\code{\textbackslash coordinate(mycoord) at(1,1);}\\
+\code{\textbackslash draw(mycoord)-{}-(2,2) coordinate(mycoord2);}\\[-1mm]
+
+\textit{Ref existing or anonymous, on-the-fly coords:} \\
+\begin{tabularx}{4cm}{l l}
+    \underline{type} & \underline{example} \\
+    named & (my\_coord) \\
+    anchor & (my\_node.north east) \\
+    absolute & (1,-3) \\
+    polar & (30:2cm) \\
+    relative & ++(2,2) \\
+    non-updating & +(2,2) \\
+    rotational & ([turn]-45:1cm) \\
+    factor-tween & (node\_a)!.25!(node\_b) \\
+    abs-tween & (node\_a)!1cm!(node\_b) \\
+    math & \$(my\_name) + (1,3)\$ \\
+    intersect & (<coor\_a> -| <coord\_b>)
+\end{tabularx} \ \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Coordinate Systems}
+
+\textit{Above examples make \say{implicit} reference to desired \say{coordinate system.} To do so explicitly: }
+\begin{lstlisting}
+(<csname> cs: <coordspec>)
+\end{lstlisting}
+\textit{where }\texttt{<csname>}\textit{ $\in$: }\texttt{canvas}, \texttt{xyz}, \texttt{canvas polar}, \texttt{barycentric}, \texttt{node}\textit{, or } \texttt{tangent}\textit{.}\\
+
+\textit{Layer a new (scoped) canvas coordinate system:}\\
+\code{\textbackslash begin\{scope\}[xshift=6cm]} ... \\
+
+\textit{Use multiple cs\textquotesingle s with arbitrary complexity:}\\
+\entry{43mm}{\textbackslash draw[](A) -{}- ( \$(A)!.85!(B)\$ );}{tween+node} \\
+\entry{55mm}{\textbackslash node at(\{\$(A)!.5!(B)\$\} -| \{\$(C)!.5!(D)\$\})}{3cs\textquotesingle s}\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{3 Dimensional Coordinates}
+
+\entry{43mm}{(xyz cylindrical cs: radius=1)}{cylindrical...}\\
+\entry{43mm}{(xyz cylindrical cs: angle=90)}{...polar}\\
+\entry{43mm}{(xyz cylindrical cs: z=1cm)}{z-dir}\\
+\entry{50mm}{(xyz spherical cs:radius=1,lat.=90)}{spher.}\\
+\entry{38mm}{[canvas is xy plane at z]}{draw to 2d plane}\\
+

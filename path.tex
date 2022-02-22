@@ -1,0 +1,158 @@
+\section{Path}
+
+
+\begin{minipage}{6.5cm}\begin{lstlisting}
+\path[<option>*]}
+   (<from>) -- (<to>) [-{}- (<to>)]*;
+\end{lstlisting}\end{minipage}
+\textit{(where } \texttt{<from>}, \texttt{<to>} \textit{are coords ... see below)}\\
+
+\textit{Generally, paths start with a \say{move-to} operation (indicated by unpreceeded coord), followed by various \say{path-to} operations. Paths can be drawn, filled, clipped, patterned, and shaded using }\texttt{\textbackslash path[<action>]}\textit{, or with shortcuts to the same like }\texttt{\textbackslash filldraw}\textit{ or }\texttt{\textbackslash shade}\textit{ Some basic examples:}\\
+
+\entry{44mm}{\textbackslash path[draw] (0,0) -{}- (5,2);}{a line} \\
+\entry{44mm}{\textbackslash filldraw (-1,5) arc(180:120:1);}{filled arc }\\
+\entry{44mm}{\textbackslash shadedraw (210:19mm);}{using polar} \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Path Operations}
+\textit{$\exists$ various \say{path operations,} exemplified below:}\\
+\entry{50mm}{\textbackslash draw (5,0) -{}- (6,1) -{}- (6,0) -{}- cycle;}{line-to} \\
+%(a.north) |- (b.west);
+\entry{50mm}{\textbackslash draw (a.north) |- (b.west);}{line-to} \\
+\entry{50mm}{\textbackslash draw (0,0) -{}- (2,0) .. }{crve-to}\\
+\entry{50mm}{\phantom{xx} controls (1,1) and (2,2) .. cycle;}{crve-to} \\
+\entry{50mm}{\textbackslash draw (.5,1) rectangle (2,0.5);}{rect.} \\
+\entry{50mm}{\textbackslash draw (1,0) circle [radius=5mm];}{circle} \\
+\entry{50mm}{\textbackslash draw (1,0) circle }{ellipse} \\
+\entry{50mm}{\phantom{xx} [x radius=1cm, y radius=5mm];}{ellipse} \\
+\entry{50mm}{\textbackslash draw (8,0) arc [start angle=0,}{arc} \\
+\entry{50mm}{\phantom{xx}  end angle=270, x radius=1cm,}{arc} \\
+\entry{50mm}{\phantom{xx}  y radius=5mm] -{}- cycle;}{arc} \\
+\entry{50mm}{\textbackslash draw (0,0) grid [step=.75cm] (3,2);}{grid} \\
+\entry{50mm}{\textbackslash draw (0,0) parabola }{parab.}\\
+\entry{50mm}{\phantom{xx} bend (.75,1.75) (1,1.5);}{alt 1} \\
+\entry{54mm}{\phantom{xx} [bend pos=0.5] bend +(0,2) +(3,0);}{alt 2} \\
+\entry{50mm}{\textbackslash draw (0,0) sin (1,1) cos (2,0);}{sin} \\
+\entry{52mm}{\textbackslash draw svg \{M 0 0 L 20 20 h 10 a 10\};}{svg} \\
+\entry{50mm}{\textbackslash draw plot coord\textquotesingle s \{(a) (b) (c)\};}{plot} \\
+\entry{50mm}{\textbackslash draw (a) to [out=135,in=45] (b);}{to-path} \\
+\textit{(Labelling }\texttt{to-path}\textit{s allow them to be styled.)}\\
+\entry{50mm}{\textbackslash draw (0,0) foreach \textbackslash x  in \{1,...,3\} }{foreach}\\
+\entry{50mm}{\phantom{xx} \{ -{}- (\textbackslash x,1) -{}- (\textbackslash x,0) \};}{foreach} \\
+\entry{50mm}{\textbackslash draw let \textbackslash p\{foo\} = (1,1), \textbackslash p2 = (2,0) }{let}\\
+\entry{50mm}{\phantom{xx} in (0,0) -{}- (\textbackslash p2) -{}- (\textbackslash p \{foo\});}{let} \\
+\entry{50mm}{\textbackslash draw (0,0) to[out=90,in=180]}{node} \\
+\entry{50mm}{\phantom{xx} node [sloped,above] {x} (3,2);}{node} \\
+\entry{50mm}{\textbackslash draw (1,1) -{}- (2,2) pic \{seagull\};}{pic} \\
+\textit{(}\texttt{pic}\textit{s can be coded, path-positioned, \& animated)}\\
+\entry{50mm}{\textbackslash draw :xshift = }{animt\textquotesingle n}\\
+\entry{51mm}{\phantom{xx} \{0s=\textquotedbl 0cm\textquotedbl, 30s=\textquotedbl -3cm\textquotedbl , repeats\}}{\textquotesingle\textquotesingle\textquotesingle} \\
+\entry{51mm}{\phantom{xx} (0,0) circle (5mm);}{\textquotesingle\textquotesingle\textquotesingle} \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{General Path Options}
+{\footnotesize \begin{multicols}{2}\begin{itemize}[leftmargin=1pt,label={}]
+    \item name
+    \item every path
+    \item insert path
+    \item rounding corners
+    \item rounded corners
+    \item sharp corners
+    \item color
+    \item help lines
+\end{itemize}\end{multicols}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Draw Options}
+{\footnotesize \begin{multicols}{2}\begin{itemize}[leftmargin=1pt,label={}]
+    \item line width
+    \item ultra thin
+    \item very thin
+    \item semithick
+    \item thick
+    \item very thick
+    \item ultra thick
+    \item line cap
+    \item line join
+    \item dash pattern
+    \item dash phase
+    \item dash
+    \item dash expand off
+    \item solid 
+    \item dotted
+    \item densely dotted
+    \item loosely dotted
+    \item dashed
+    \item densely dashed
+    \item loosely dashed
+    \item dash dot
+    \item densely dash dot
+    \item loosely dash dot
+    \item dash dot dot
+    \item densely dash dot dot
+    \item loosely dash dot dot
+    \item double
+    \item double distance
+    \item \textquotesingle\textquotesingle\textquotesingle  betw. line centers
+    \item dbl eql sign distance
+\end{itemize}\end{multicols}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Miscellaneous Path Actions}
+\textit{$\exists$ a number of fill and shade options in addition to fill \say{patterns} and \say{shading} types:}\\
+\entry{45mm}{\textbackslash pattern[pattern color=white,}{}
+\entry{45mm}{\phantom{xx}pattern=bricks] \dots }{pattern}\\
+\entry{45mm}{\textbackslash shadedraw [shading=axis] \dots }{shade type}
+{\footnotesize \begin{multicols}{2}\begin{itemize}[leftmargin=1pt,label={}]
+    \item fill
+    \item pattern
+    \item pattern color
+    \item nonzero rule
+    \item even odd rule
+    \item path picture
+    \item shading
+    \item shading angle
+\end{itemize}\end{multicols}}
+
+\textit{Manage picture-text interaction by controlling \say{bounding box} with }\texttt{trim},\texttt{trim left},\texttt{trim right}\textit{, or like:}\\
+\code{\textbackslash draw[use as bounding box] \dots}\\
+
+\textit{Clip around any kind of path (drawn, filled, etc):}\\
+\code{\textbackslash draw[clip] (0,0) circle (1cm)}\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Plot Path Operation}
+\textit{A simplified, tikz-native alternative to pgfplots.}\\
+\entry{41mm}{\textbackslash draw plot coordinates }{plot on a path}\\
+\entry{41mm}{\phantom{xx}\{ (0,0) (1,2) (3,0) ... \}}{simple coords}\\
+\entry{41mm}{\textbackslash draw plot[mark=x,smooth] }{options}\\
+\entry{41mm}{\phantom{xx}file \{folder/file.table\}}{extern data}\\
+\entry{41mm}{\textbackslash draw plot (\textbackslash x, \{sin(\textbackslash x r)\})}{a function}\\
+\entry{48mm}{\textbackslash draw [domain=-3:3,variable=\textbackslash t] }{paramet.}\\
+\entry{41mm}{\phantom{xx}plot(\{\textbackslash sin(\textbackslash t r)\},\{cos(\textbackslash t r)\})}{circle}\\[1mm]
+\textit{Options:}
+{\scriptsize \begin{multicols}{3}\begin{itemize}[leftmargin=1mm,label={}]
+    \item variable
+    \item samples
+    \item domain
+    \item samples at
+    \item {[x|y]range}
+    \item mark
+    \item mark repeat
+    \item mark phase
+    \item mark indices
+    \item mark size
+    \item smooth
+    \item tension
+    \item const plot
+    \item jump mark
+    \item {[x|y]}comb
+    \item polar comb
+    \item {[x|y]}bar
+\end{itemize}\end{multicols}}

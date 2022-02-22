@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Nodes \& Edges}
+\begin{minipage}{6.5cm}\begin{lstlisting}
+\node[<setting>*]
+   at (<coord>)?
+   (<name>?){<text>?}
+\end{lstlisting}\end{minipage}\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Options}
+
+\begin{tabularx}{4cm}{r l}
+    \underline{setting} & \underline{example} \\
+    anchor & west \\
+    align & right|justify \\
+    text width & .85cm \\
+    pos & .5 \\
+    below of & my\_node \\
+    text depth & 5.7cm \\
+    label & \{xshift=.5mm\} \\
+    shape & rectangle callout \\ 
+\end{tabularx} \ \\
+\vspace{1mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Matrices of Nodes}
+
+\textit{Create a set of nodes with a \textbf{matrix}:}\\
+\entry{40mm}{\textbackslash matrix [matrix of nodes]\{}{create}\\
+\entry{40mm}{\phantom{xx}1 \& 2 \& 3 \textbackslash\textbackslash}{basic syntax}\\
+\entry{40mm}{\phantom{xx}4 \& 5 \& |red| 6 \}}{pass node opt\textquotesingle n}\\
+
+\textit{Other matrix options $\in$:}
+{\scriptsize 
+\begin{multicols}{3}\begin{itemize}[leftmargin=0mm,label={}]
+    \item draw
+    \item anchor
+    \item column sep
+    \item row sep
+    \item every odd col.
+    \item every even col.
+    \item row \# column \#
+    \item above delimiter
+    \item left delimiter
+\end{itemize}\end{multicols}}
+\vspace{2mm}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Edges}
+
+\begin{minipage}{6.5cm}\begin{lstlisting}
+\path[<setting>*]
+   (<from>) edge[<setting>*] (<to>);}
+\end{lstlisting}\end{minipage}
+
+\textit{... where settings $\in$: }
+{\scriptsize \begin{multicols}{3}\begin{itemize}[label={},leftmargin=0mm]
+    \item out
+    \item in
+    \item bend right
+    \item ->
+    \item <-
+    \item -\{<a\_head>[opt*]\}
+\end{itemize}\end{multicols}}
+\vspace{1mm}
+
+
+%\textit{Shorthand edge creation:} 
+%\entry{35mm}{(a) -{}- (b)}{straight line}\\
+%\entry{35mm}{(a) -| (b)}{right $\angle$s}
+
